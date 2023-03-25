@@ -7,6 +7,8 @@ import {
   View,
 } from "react-native";
 
+import colors from "../config/color";
+
 function ViewImageScreen(props) {
   return (
     <View style={styles.container}>
@@ -25,7 +27,7 @@ function ViewImageScreen(props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "black",
+    backgroundColor: colors.back,
     justifyContent: "center",
     alignItems: "center",
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : "0",
@@ -37,12 +39,12 @@ const styles = StyleSheet.create({
   nextButton: {
     height: 50,
     width: 50,
-    backgroundColor: "green",
+    backgroundColor: colors.green,
   },
   backButton: {
     height: 50,
     width: 50,
-    backgroundColor: "red",
+    backgroundColor: colors.red,
   },
   buttonsContainer: {
     position: "absolute",

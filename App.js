@@ -1,22 +1,32 @@
 import {
-  StatusBar,
-  Platform,
+  // StatusBar,
+  // Platform,
   StyleSheet,
   Text,
   View,
-  SafeAreaView,
 } from "react-native";
-import ViewImageScreen from "./app/Screens/ViewImageScreen";
+import AppButton from "./app/components/AppButton";
+import Card from "./app/components/Card";
+
+// import ViewImageScreen from "./app/Screens/ViewImageScreen";
 import WelcomeScreen from "./app/Screens/WelcomeScreen";
 
 export default function App() {
-  // return <WelcomeScreen />;
-  return <ViewImageScreen />;
+  return (
+    <Card
+      title={"Hey"}
+      subtitle={"How are you?"}
+      image={require("./app/assets/pexels-malte-luk-2244746.jpg")}
+    />
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
-    // paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : "0",
-    paddingTop: 200,
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
+
+// paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : "0",
