@@ -1,15 +1,14 @@
-import { StatusBar, Platform, StyleSheet, Text, View } from "react-native";
-import AppButton from "./app/components/AppButton";
-import Card from "./app/components/Card";
+import { StatusBar, Platform, StyleSheet } from "react-native";
 
-import WelcomeScreen from "./app/Screens/WelcomeScreen";
-import ViewImageScreen from "./app/Screens/ViewImageScreen";
-import ListingDetailsScreen from "./app/Screens/ListingDetailedScreen";
-import ListItem from "./app/components/ListItem";
-import MessegesScreen from "./app/Screens/MessegesScreen";
+import Icon from "./app/components/Icon";
+import Screen from "./app/components/Screen";
 
 export default function App() {
-  return <MessegesScreen />;
+  return (
+    <Screen>
+      <Icon name="email" size={50} backgroundColor="red" iconColor="white" />
+    </Screen>
+  );
 }
 
 const styles = StyleSheet.create({
