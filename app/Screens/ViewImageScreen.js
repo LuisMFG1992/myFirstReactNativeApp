@@ -7,14 +7,24 @@ import {
   View,
 } from "react-native";
 
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+
 import colors from "../config/color";
 
 function ViewImageScreen(props) {
   return (
     <View style={styles.container}>
       <View style={styles.buttonsContainer}>
-        <View style={styles.nextButton}></View>
-        <View style={styles.backButton}></View>
+        <View>
+          <MaterialCommunityIcons name="close" size={35} color="white" />
+        </View>
+        <View>
+          <MaterialCommunityIcons
+            name="trash-can-outline"
+            size={35}
+            color="white"
+          />
+        </View>
       </View>
       <ImageBackground
         style={styles.imagerDisplay}
