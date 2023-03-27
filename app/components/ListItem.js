@@ -9,16 +9,26 @@ import {
 import colors from "../config/color";
 import AppText from "./AppText";
 
-function ListItem({ title, subtitle, image, onPress, renderRightActions }) {
+function ListItem({
+  title,
+  subtitle,
+  image,
+  onPress,
+  renderRightActions,
+  IconComponent,
+}) {
   return (
     <GestureHandlerRootView>
       <Swipeable renderRightActions={renderRightActions}>
         <TouchableWithoutFeedback onPress={onPress}>
           <View style={styles.container}>
-            <Image style={styles.image} source={image} />
-            <View>
+            {IconComponent}
+            {image && <Image style={styles.image} source={image} />}
+            <View style={styles.detailsContainer}>
               <AppText style={styles.title}>{title}</AppText>
-              <AppText style={styles.subtitle}>{subtitle}</AppText>
+              {subtitle && (
+                <AppText style={styles.subtitle}>{subtitle}</AppText>
+              )}
             </View>
           </View>
         </TouchableWithoutFeedback>
@@ -31,12 +41,17 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     paddingVertical: 15,
+    backgroundColor: colors.white,
+    paddingHorizontal: 20,
   },
   image: {
     width: 70,
     height: 70,
     borderRadius: 45,
-    marginRight: 20,
+  },
+  detailsContainer: {
+    justifyContent: "center",
+    marginLeft: 20,
   },
   title: {
     fontWeight: "bold",
