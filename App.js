@@ -17,10 +17,10 @@ import { useState } from "react";
 import AppTextInput from "./app/components/AppTextInput";
 import AppPicker from "./app/components/AppPicker";
 import LoginScreen from "./app/Screens/LoginScreen";
+import ListingEditScreen from "./app/Screens/ListingEditScreen";
 
 export default function App() {
-  const [isNew, SetIsNew] = useState(false);
-  return <LoginScreen />;
+  return <ListingEditScreen />;
 }
 
 const styles = StyleSheet.create({
