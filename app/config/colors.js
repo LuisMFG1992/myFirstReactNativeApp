@@ -7,4 +7,5 @@ export default {
   black: "black",
   green: "green",
   red: "red",
+  dark: "#0c0c0c",
 };

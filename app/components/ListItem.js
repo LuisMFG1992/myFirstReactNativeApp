@@ -6,7 +6,7 @@ import {
   Swipeable,
   TouchableWithoutFeedback,
 } from "react-native-gesture-handler";
-import colors from "../config/color";
+import colors from "../config/colors";
 import AppText from "./AppText";
 
 function ListItem({
