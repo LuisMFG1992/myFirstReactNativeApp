@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import * as Yup from "yup";
 import AppPicker from "../components/AppPicker";
 
@@ -24,6 +24,7 @@ const categories = [
 ];
 
 function ListingEditScreen(props) {
+  const [pickerValue, setPickerValue] = useState();
   return (
     <Screen>
       <AppForm
@@ -43,13 +44,21 @@ function ListingEditScreen(props) {
           name="price"
           placeholder="Price"
         />
-        <AppPicker items={categories} name="category" placeholder="Category" />
+        <AppPicker
+          items={categories}
+          name="category"
+          placeholder="Category"
+          pickerValue={pickerValue}
+          setPickerValue={setPickerValue}
+        />
         <AppFormField
           maxLeght={255}
           miltiline
           name="description"
           numberOfLines={3}
           placeholder="Description"
+          pickerValue={pickerValue}
+          setPickerValue={setPickerValue}
         />
         <SubmitButton title="Post" />
       </AppForm>

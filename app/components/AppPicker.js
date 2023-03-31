@@ -15,8 +15,15 @@ import AppText from "./AppText";
 import Screen from "./Screen";
 import { TouchableOpacity } from "react-native";
 
-function AppPicker({ items, icon, placeholder, ...otherProps }) {
-  const [isVisible, setIsVisible] = useState(true);
+function AppPicker({
+  items,
+  icon,
+  placeholder,
+  setPickerValue,
+  pickerValue,
+  ...otherProps
+}) {
+  const [isVisible, setIsVisible] = useState(false);
   return (
     <>
       <TouchableWithoutFeedback onPress={() => setIsVisible(true)}>
@@ -30,7 +37,11 @@ function AppPicker({ items, icon, placeholder, ...otherProps }) {
               style={styles.icon}
             />
           )}
-          <AppText style={styles.text}>{placeholder}</AppText>
+          {pickerValue ? (
+            <AppText style={styles.text}>{pickerValue}</AppText>
+          ) : (
+            <AppText style={styles.placeholder}>{placeholder}</AppText>
+          )}
           <MaterialCommunityIcons
             name={"chevron-down"}
             color={defaultStyles.colors.medium}
@@ -45,7 +56,12 @@ function AppPicker({ items, icon, placeholder, ...otherProps }) {
             data={items}
             keyExtractor={(element) => element.value}
             renderItem={({ item }) => (
-              <TouchableOpacity onPress={() => setIsVisible(false)}>
+              <TouchableOpacity
+                onPress={() => {
+                  setIsVisible(false);
+                  setPickerValue(item.label);
+                }}
+              >
                 <AppText>{item.label}</AppText>
               </TouchableOpacity>
             )}
@@ -72,6 +88,9 @@ const styles = StyleSheet.create({
   },
   icon: {
     marginRight: 10,
+  },
+  placeholder: {
+    color: defaultStyles.colors.medium,
   },
 });
 
