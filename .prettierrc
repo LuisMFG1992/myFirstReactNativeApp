@@ -1,0 +1,8 @@
+{
+  "spaceBeforeFunctionParen": true,
+  "singleQuote": true,
+  "jsxSing1eQuote": true,
+  "arrowParens": "avoid",
+  "semi": false,
+  "trailingComma": "all"
+}

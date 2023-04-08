@@ -1,19 +1,19 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 import {
   View,
   StyleSheet,
   Platform,
   Modal,
-  Button,
   TouchableWithoutFeedback,
   FlatList,
-} from "react-native";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+  Button,
+} from 'react-native'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 
-import defaultStyles from "../config/styles";
-import AppText from "./AppText";
-import Screen from "./Screen";
-import { TouchableOpacity } from "react-native";
+import defaultStyles from '../config/styles'
+import AppText from './AppText'
+import Screen from './Screen'
+import CategoryPickerItem from './CategoryPickerItem'
 
 function AppPicker({
   items,
@@ -21,13 +21,14 @@ function AppPicker({
   placeholder,
   setPickerValue,
   pickerValue,
+  width = '100%',
   ...otherProps
 }) {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(false)
   return (
     <>
       <TouchableWithoutFeedback onPress={() => setIsVisible(true)}>
-        <View style={styles.container}>
+        <View style={[styles.container, { width }]}>
           {icon && (
             <MaterialCommunityIcons
               name={icon}
@@ -43,7 +44,7 @@ function AppPicker({
             <AppText style={styles.placeholder}>{placeholder}</AppText>
           )}
           <MaterialCommunityIcons
-            name={"chevron-down"}
+            name={'chevron-down'}
             color={defaultStyles.colors.medium}
             size={20}
             style={styles.icon}
@@ -52,46 +53,44 @@ function AppPicker({
       </TouchableWithoutFeedback>
       <Modal visible={isVisible} animationType="slide">
         <Screen>
+          <Button title="Close" />
           <FlatList
             data={items}
-            keyExtractor={(element) => element.value}
+            keyExtractor={element => element.value}
             renderItem={({ item }) => (
-              <TouchableOpacity
-                onPress={() => {
-                  setIsVisible(false);
-                  setPickerValue(item.label);
-                }}
-              >
-                <AppText>{item.label}</AppText>
-              </TouchableOpacity>
+              <CategoryPickerItem
+                item={item}
+                setIsVisible={setIsVisible}
+                setPickerValue={setPickerValue}
+              />
             )}
           />
         </Screen>
       </Modal>
     </>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor: defaultStyles.colors.light,
     borderRadius: 25,
-    flexDirection: "row",
-    alignItems: "center",
-    width: "100%",
+    flexDirection: 'row',
+    alignItems: 'center',
     padding: 15,
     marginVertical: 10,
   },
   text: {
     flex: 1,
-    fontFamily: Platform.OS === "android" ? "Roboto" : "Avenir",
+    fontFamily: Platform.OS === 'android' ? 'Roboto' : 'Avenir',
   },
   icon: {
     marginRight: 10,
   },
   placeholder: {
     color: defaultStyles.colors.medium,
+    flex: 1,
   },
-});
+})
 
-export default AppPicker;
+export default AppPicker

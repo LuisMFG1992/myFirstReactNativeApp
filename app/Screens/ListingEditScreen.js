@@ -1,40 +1,40 @@
-import React, { useState } from "react";
-import * as Yup from "yup";
-import AppPicker from "../components/AppPicker";
+import React, { useState } from 'react'
+import * as Yup from 'yup'
+import AppPicker from '../components/AppPicker'
 
 import {
   AppForm,
   AppFormField,
-  AppFormPicker,
+  // AppFormPicker,
   SubmitButton,
-} from "../components/foms";
-import Screen from "../components/Screen";
+} from '../components/foms'
+import Screen from '../components/Screen'
 
 const validationSchema = Yup.object().shape({
-  title: Yup.string().required().min(1).label("Title"),
-  price: Yup.string().required().min(1).max(1000).label("Price"),
-  description: Yup.string().label("Description"),
-  category: Yup.object().required().nullable().label("Category"),
-});
+  title: Yup.string().required().min(1).label('Title'),
+  price: Yup.string().required().min(1).max(1000).label('Price'),
+  description: Yup.string().label('Description'),
+  category: Yup.object().required().nullable().label('Category'),
+})
 
 const categories = [
-  { label: "Forniture", value: 1 },
-  { label: "Clothing", value: 2 },
-  { label: "Camera", value: 3 },
-];
+  { label: 'Forniture', value: 1 },
+  { label: 'Clothing', value: 2 },
+  { label: 'Camera', value: 3 },
+]
 
 function ListingEditScreen(props) {
-  const [pickerValue, setPickerValue] = useState();
+  const [pickerValue, setPickerValue] = useState()
   return (
     <Screen>
       <AppForm
         initialValues={{
-          title: "",
-          price: "",
-          description: "",
+          title: '',
+          price: '',
+          description: '',
           categories: null,
         }}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={values => console.log(values)}
         validationSchema={validationSchema}
       >
         <AppFormField maxLeght={255} name="title" placeholder="Title" />
@@ -43,6 +43,7 @@ function ListingEditScreen(props) {
           maxLeght={8}
           name="price"
           placeholder="Price"
+          width={120}
         />
         <AppPicker
           items={categories}
@@ -50,6 +51,7 @@ function ListingEditScreen(props) {
           placeholder="Category"
           pickerValue={pickerValue}
           setPickerValue={setPickerValue}
+          width={'50%'}
         />
         <AppFormField
           maxLeght={255}
@@ -63,7 +65,7 @@ function ListingEditScreen(props) {
         <SubmitButton title="Post" />
       </AppForm>
     </Screen>
-  );
+  )
 }
 
 // const styles = StyleSheet.create({
@@ -72,4 +74,4 @@ function ListingEditScreen(props) {
 //   },
 // });
 
-export default ListingEditScreen;
+export default ListingEditScreen
