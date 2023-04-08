@@ -22,6 +22,7 @@ function AppPicker({
   setPickerValue,
   pickerValue,
   width = '100%',
+  numberOfColumns = 1,
   ...otherProps
 }) {
   const [isVisible, setIsVisible] = useState(false)
@@ -53,10 +54,11 @@ function AppPicker({
       </TouchableWithoutFeedback>
       <Modal visible={isVisible} animationType="slide">
         <Screen>
-          <Button title="Close" />
+          <Button title="Close" onPress={() => setIsVisible(false)} />
           <FlatList
             data={items}
             keyExtractor={element => element.value}
+            numColumns={numberOfColumns}
             renderItem={({ item }) => (
               <CategoryPickerItem
                 item={item}
