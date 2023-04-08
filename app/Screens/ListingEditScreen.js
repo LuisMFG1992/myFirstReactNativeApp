@@ -25,6 +25,7 @@ const categories = [
 
 function ListingEditScreen(props) {
   const [pickerValue, setPickerValue] = useState()
+
   return (
     <Screen>
       <AppForm
@@ -63,6 +64,7 @@ function ListingEditScreen(props) {
           pickerValue={pickerValue}
           setPickerValue={setPickerValue}
         />
+
         <SubmitButton title="Post" />
       </AppForm>
     </Screen>

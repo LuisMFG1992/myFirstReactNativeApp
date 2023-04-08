@@ -1,9 +1,10 @@
 import React from 'react'
 // import { StyleSheet } from 'react-native'
-import ListingEditScreen from './app/Screens/ListingEditScreen'
+// import ListingEditScreen from './app/Screens/ListingEditScreen'
+import ImagesPicker from './app/components/ImagesPicker'
 
 export default function App() {
-  return <ListingEditScreen />
+  return <ImagesPicker />
 }
 
 // const styles = StyleSheet.create({

@@ -1,46 +1,49 @@
-import React, { useState } from "react";
-import { View } from "react-native";
-import { FlatList, StatusBar, StyleSheet } from "react-native";
-import ListItem from "../components/ListItem";
-import ListItemDeleteAction from "../components/ListItemDeleteAction";
-import ListItemSeparator from "../components/ListItemSeparator";
-import Screen from "../components/Screen";
+import React, { useState } from 'react'
+import { FlatList } from 'react-native'
+
+import ListItem from '../components/ListItem'
+import ListItemDeleteAction from '../components/ListItemDeleteAction'
+import ListItemSeparator from '../components/ListItemSeparator'
+import Screen from '../components/Screen'
 
 const inicialMesseges = [
   {
     id: 1,
-    title: "T1",
-    description: "D1",
-    image: require("../assets/profilePic.jpg"),
+    title: 'T1',
+    description: 'D1',
+    image: require('../assets/profilePic.jpg'),
   },
   {
     id: 2,
-    title: "T2",
-    description: "D2",
-    image: require("../assets/profilePic.jpg"),
+    title: 'T2',
+    description: 'D2',
+    image: require('../assets/profilePic.jpg'),
   },
   {
     id: 3,
-    title: "T3",
-    description: "D3",
-    image: require("../assets/profilePic.jpg"),
+    title: 'T3',
+    description: 'D3',
+    image: require('../assets/profilePic.jpg'),
   },
-];
+]
 
 function MessegesScreen(props) {
-  const [messeges, setMesseges] = useState(inicialMesseges);
-  const [refreshing, setRefreshing] = useState(false);
+  const [messeges, setMesseges] = useState(inicialMesseges)
+  const [
+    refreshing,
+    // setRefreshing
+  ] = useState(false)
 
-  const handlerDelete = (messege) => {
-    const newMesseges = messeges.filter((element) => element.id !== messege.id);
-    setMesseges(newMesseges);
-  };
+  const handlerDelete = messege => {
+    const newMesseges = messeges.filter(element => element.id !== messege.id)
+    setMesseges(newMesseges)
+  }
 
   return (
     <Screen>
       <FlatList
         data={messeges}
-        keyExtractor={(element) => element.id.toString()}
+        keyExtractor={element => element.id.toString()}
         renderItem={({ item }) => (
           <ListItem
             title={item.title}
@@ -58,17 +61,15 @@ function MessegesScreen(props) {
           setMesseges([
             {
               id: 2,
-              title: "T2",
-              description: "D2",
-              image: require("../assets/profilePic.jpg"),
+              title: 'T2',
+              description: 'D2',
+              image: require('../assets/profilePic.jpg'),
             },
-          ]);
+          ])
         }}
       />
     </Screen>
-  );
+  )
 }
 
-const styles = StyleSheet.create({});
-
-export default MessegesScreen;
+export default MessegesScreen
