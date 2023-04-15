@@ -1,38 +1,27 @@
 import React, { useState } from 'react'
-import { Button, View } from 'react-native'
-import * as ImagePicker from 'expo-image-picker'
+import { View } from 'react-native'
 
 import Screen from './Screen'
-import ImageInput from './ImageInput'
+import ImageInputList from './ImageInputList'
 
 function ImagesPicker() {
-  const [imageUri, setImageUri] = useState(null)
+  const [imageUris, setImageUris] = useState([])
 
-  // const pickImage = async () => {
-  //   // No permissions request is necessary for launching the image library
-  //   try {
-  //     const result = await ImagePicker.launchImageLibraryAsync({
-  //       mediaTypes: ImagePicker.MediaTypeOptions.All,
-  //       allowsMultipleSelection: true,
-  //       aspect: [4, 3],
-  //       quality: 1,
-  //     })
-  //     console.log(result)
-  //     if (!result.canceled) {
-  //       setImageUri(result.assets)
-  //     }
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
-  // }
+  const handleAdd = uri => {
+    setImageUris([...imageUris, uri])
+  }
+
+  const handleRemove = uri => {
+    setImageUris(imageUris.filter(imageUri => imageUri !== uri))
+  }
 
   return (
     <Screen>
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        {/* <Button title="Pick an image from camera roll" onPress={pickImage} /> */}
-        <ImageInput
-          imageUri={imageUri}
-          onChangeImage={uri => setImageUri(uri)}
+        <ImageInputList
+          imageUris={imageUris}
+          onAddImage={handleAdd}
+          onRemoveImage={handleRemove}
         />
       </View>
     </Screen>
