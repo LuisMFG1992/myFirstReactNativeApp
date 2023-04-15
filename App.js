@@ -1,16 +1,11 @@
 import React from 'react'
-// import { StyleSheet } from 'react-native'
-// import ListingEditScreen from './app/Screens/ListingEditScreen'
+import Screen from './app/components/Screen'
 import ImagesPicker from './app/components/ImagesPicker'
 
 export default function App() {
-  return <ImagesPicker />
+  return (
+    <Screen>
+      <ImagesPicker />
+    </Screen>
+  )
 }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     alignItems: 'center'
-//   }
-// })

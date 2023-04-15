@@ -16,6 +16,7 @@ import Screen from './Screen'
 import CategoryPickerItem from './CategoryPickerItem'
 
 function AppPicker({
+  name,
   items,
   icon,
   placeholder,
@@ -26,6 +27,7 @@ function AppPicker({
   ...otherProps
 }) {
   const [isVisible, setIsVisible] = useState(false)
+
   return (
     <>
       <TouchableWithoutFeedback onPress={() => setIsVisible(true)}>
