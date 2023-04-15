@@ -31,7 +31,7 @@ function ImageInput({ imageUri, onChangeImage }) {
       })
       console.log(result)
       if (!result.canceled) {
-        onChangeImage(result.assets)
+        onChangeImage(result.assets[0].uri)
       }
     } catch (error) {
       console.log(error)
