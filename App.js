@@ -1,11 +1,26 @@
 import React from 'react'
-import Screen from './app/components/Screen'
-import ImagesPicker from './app/components/ImagesPicker'
+import AppFormImagePicker from './app/components/foms/AppFormImagePicker'
+import { AppForm } from './app/components/foms'
+import ImageInputList from './app/components/ImageInputList'
+import ListingEditScreen from './app/Screens/ListingEditScreen'
 
 export default function App() {
   return (
-    <Screen>
-      <ImagesPicker />
-    </Screen>
+    // <>
+    //   <AppForm
+    //     initialValues={{
+    //       title: '',
+    //       price: '',
+    //       description: '',
+    //       categories: null,
+    //       images: [],
+    //     }}
+    //     onSubmit={values => console.log(values)}
+    //     // validationSchema={validationSchema}
+    //   >
+    //     <ImageInputList />
+    //   </AppForm>
+    // </>
+    <ImageInputList />
   )
 }

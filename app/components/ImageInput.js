@@ -31,10 +31,10 @@ function ImageInput({ imageUri, onChangeImage }) {
       })
       console.log(result)
       if (!result.canceled) {
-        onChangeImage(result.assets[0].uri)
+        onChangeImage(result.assets)
       }
     } catch (error) {
-      console.log(error)
+      console.log('Esto es un error', error)
     }
   }
 
